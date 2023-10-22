@@ -41,6 +41,21 @@ local Button1 = eggs:CreateButton({
    end,
 })
 
+local Button2 = eggs:CreateButton({
+   Name = "Load Hydroxide",
+   Callback = function()
+   local owner = "Upbolt"
+local branch = "revision"
+
+local function webImport(file)
+    return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+end
+
+webImport("init")
+webImport("ui/main")
+   end,
+})
+
 local Slider = eggs:CreateSlider({
    Name = "Slider Example",
    Range = {0, 300},
